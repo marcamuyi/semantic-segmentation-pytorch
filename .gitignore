@@ -1,0 +1,16 @@
+# Ignorar carpetas de datos pesados (imágenes y máscaras)
+data/
+
+# Ignorar los pesos de los modelos entrenados (.pth o .h5)
+weights/
+*.pth
+*.h5
+
+# Ignorar archivos temporales de Python y entornos virtuales
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Ignorar temporales de Jupyter Notebooks
+.ipynb_checkpoints/G
