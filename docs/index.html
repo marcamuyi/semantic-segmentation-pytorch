@@ -77,13 +77,6 @@
             border-radius: 2px;
         }
 
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
         .card {
             background: white;
             padding: 2rem;
@@ -264,8 +257,8 @@
     <div class="container">
 
         <div class="card" style="margin-bottom: 3rem;">
-            <h2 style="margin-top:0; color: var(--primary);">El Concepto Alogorítmico</h2>
-            <p>Así como un niño colorea segmentando un dibujo por regiones delimitadas, una <strong>Red Neuronal Profunda</strong> analiza las imágenes analizando cada píxel de forma individual para clasificarlo en categorías específicas, generando un mapa de colores de alta precisión en lugar de una simple etiqueta global.</p>
+            <h2 style="margin-top:0; color: var(--primary);">El Concepto Algorítmico</h2>
+            <p>Así como un niño colorea segmentando un dibujo por regiones delimitadas, una <strong>Red Neuronal Profunda</strong> analiza las imágenes estudiando cada píxel de forma individual para clasificarlo en categorías específicas, generando un mapa de colores de alta precisión en lugar de una simple etiqueta global.</p>
         </div>
 
         <h2 class="section-title">El Espectro de la Visión Artificial</h2>
@@ -278,12 +271,12 @@
             <div class="spectrum-card">
                 <h3>Detección de Objetos <span class="badge">Bounding Boxes</span></h3>
                 <p><strong>¿Qué hace?:</strong> Encuentra e identifica instancias específicas encerrándolas en cuadros delimitadores rectangulares.</p>
-                <p><em>Ejemplo:</em> Enmarca un carro con un rectángulo rígido.</p>
+                <p><em>Ejemplo:</em> Marca un carro con un rectángulo rígido.</p>
             </div>
             <div class="spectrum-card active">
                 <h3>Segmentación Semántica <span class="badge">Pixel-Level</span></h3>
                 <p><strong>¿Qué hace?:</strong> Clasifica de forma absoluta cada píxel individual de la imagen.</p>
-                <p><em>Ejemplo:</em> Genera una máscara de color de forma irregular que delimita la silueta exacta del objeto.</p>
+                <p><em>Ejemplo:</em> Delimita exactamente la silueta irregular del objeto.</p>
             </div>
         </div>
 
@@ -292,30 +285,30 @@
             <div class="step">
                 <div class="step-num">1</div>
                 <h4>Entrada</h4>
-                <p style="font-size: 0.9rem; color: #475569;">Recepción de la imagen cruda o fotograma de video.</p>
+                <p style="font-size: 0.9rem; color: #475569;">La IA recibe una imagen cruda o fotograma de video.</p>
             </div>
             <div class="step">
                 <div class="step-num">2</div>
                 <h4>Extracción</h4>
-                <p style="font-size: 0.9rem; color: #475569;">La red identifica patrones geométricos, bordes y texturas.</p>
+                <p style="font-size: 0.9rem; color: #475569;">La red identifica patrones geométricos, bordes, colores y texturas.</p>
             </div>
             <div class="step">
                 <div class="step-num">3</div>
                 <h4>Comprensión</h4>
-                <p style="font-size: 0.9rem; color: #475569;">Fusión de características para interpretar el contexto espacial complejo.</p>
+                <p style="font-size: 0.9rem; color: #475569;">Fusión de características complejas e interpretación del contexto espacial.</p>
             </div>
             <div class="step">
                 <div class="step-num">4</div>
                 <h4>Predicción</h4>
-                <p style="font-size: 0.9rem; color: #475569;">Generación del mapa final de segmentación a color píxel a píxel.</p>
+                <p style="font-size: 0.9rem; color: #475569;">Generación del mapa de segmentación a color píxel por píxel.</p>
             </div>
         </div>
 
         <div class="map-section">
             <h2 style="color: var(--primary); margin-top: 0;">Estructura de Aprendizaje</h2>
-            <p>A continuación se presenta la articulación conceptual de los fundamentos, arquitecturas y metodologías implementadas en el proyecto.</p>
+            <p>A continuación se presenta la articulación conceptual de los fundamentos, arquitecturas y metodologías integradas en el proyecto.</p>
             <div class="map-container">
-                <img src="../MAPA CONEPTUAL SEMANTIC SEGMENTATION.jpg" alt="Mapa Conceptual de Segmentación Semántica">
+                <img src="MAPA CONEPTUAL SEMANTIC SEGMENTATION.jpg" alt="Mapa Conceptual de Segmentación Semántica">
             </div>
         </div>
 
@@ -326,15 +319,15 @@
             <div class="geo-grid">
                 <div class="geo-item orange">
                     <h4 style="color: var(--geo-orange);">Naranja (Infraestructura)</h4>
-                    <p style="font-size: 0.9rem; margin-bottom:0;">Extracción automática de vías vehiculares, detección de techos y geolocalización de construcciones informales o ilegales.</p>
+                    <p style="font-size: 0.9rem; margin-bottom:0;">Extracción automática de vías, techos y detección de construcciones informales o ilegales.</p>
                 </div>
                 <div class="geo-item green">
                     <h4 style="color: var(--geo-green);">Verde (Vegetación)</h4>
-                    <p style="font-size: 0.9rem; margin-bottom:0;">Clasificación automatizada del uso del suelo, monitoreo de deforestación y análisis de evolución de entornos urbanos.</p>
+                    <p style="font-size: 0.9rem; margin-bottom:0;">Clasificación automatizada del uso del suelo y análisis de evolución del entorno urbano.</p>
                 </div>
                 <div class="geo-item blue">
-                    <h4 style="color: var(--geo-blue);">Azul (Cuerpos de Agua y Riesgo)</h4>
-                    <p style="font-size: 0.9rem; margin-bottom:0;">Delimitación precisa de cuerpos hídricos y mapeo inmediato de zonas afectadas por desastres naturales (inundaciones o deslizamientos).</p>
+                    <h4 style="color: var(--geo-blue);">Azul (Agua / Riesgo)</h4>
+                    <p style="font-size: 0.9rem; margin-bottom:0;">Delimitación precisa de cuerpos hídricos y mapeo de zonas afectadas por desastres naturales (inundaciones o deslizamientos).</p>
                 </div>
             </div>
         </div>
@@ -343,15 +336,15 @@
             <h3>⚠️ Desafíos Críticos de la Tecnología</h3>
             <ul style="margin-bottom: 0; padding-left: 1.2rem;">
                 <li><strong>Anotación Masiva:</strong> Requiere conjuntos de datos extensos (como Cityscapes o MS COCO) anotados manualmente de forma quirúrgica por expertos.</li>
-                <li><strong>Carga Computacional:</strong> Exige un uso intensivo de hardware avanzado para el procesamiento de matrices (Entrenamiento optimizado en GPU).</li>
-                <li><strong>Confusión Semántica:</strong> Riesgo de errores de clasificación entre objetos que comparten texturas o morfologías idénticas.</li>
+                <li><strong>Carga Computacional:</strong> Exige una altísima capacidad computacional, requiriendo un entrenamiento intensivo en GPU.</li>
+                <li><strong>Confusión Semántica:</strong> Riesgo de errores de clasificación entre objetos que comparten texturas o formas idénticas.</li>
             </ul>
         </div>
 
         <div style="text-align: center; margin-top: 3rem;">
             <h2 style="color: var(--primary);">Acceso al Entorno de Desarrollo</h2>
             <p>Consulta el código fuente modular en PyTorch, el dataset y los scripts de entrenamiento del modelo.</p>
-            <a href="https://github.com/"" style="background-color: #0f172a;" class="btn">💻 Explorar Repositorio en GitHub</a>
+            <a href="#" style="background-color: #0f172a;" class="btn">💻 Explorar Repositorio en GitHub</a>
         </div>
 
     </div>
