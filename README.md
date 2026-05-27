@@ -1,1 +1,1 @@
-# semantic-segmentation-pytorchh
+# semantic-segmentation-pytorch
