@@ -1,1 +1,108 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segmentación Semántica | Mi Proyecto</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        header {
+            background: linear-gradient(135deg, #1e3a8a, var(--primary));
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        h1 { margin: 0; font-size: 2.5rem; }
+        h2 { color: var(--primary); border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        .btn:hover { background: #1d4ed8; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Segmentación Semántica con Deep Learning</h1>
+        <p>Comprensión de imágenes a nivel de píxel</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="card">
+            <h2>¿Qué es la Segmentación Semántica?</h2>
+            <p>A diferencia de la clasificación de imágenes tradicional (que te dice qué hay en una foto) o la detección de objetos (que encierra los objetos en cajas), la <strong>Segmentación Semántica</strong> consiste en asignar una etiqueta o clase a <strong>cada píxel individual</strong> de la imagen.</p>
+            <p>Es el equivalente a "colorear" la imagen por categorías: todo lo que sea carretera de un color, los peatones de otro y los autos de otro.</p>
+        </div>
+
+        <div class="card">
+            <h2>La Arquitectura Empleada: U-Net</h2>
+            <p>Para este proyecto implementamos una red <strong>U-Net</strong>, una arquitectura convolucional diseñada originalmente para segmentación de imágenes biomédicas que consta de dos partes clave:</p>
+            <ul>
+                <li><strong>Encoder (Contracción):</strong> Reduce el tamaño de la imagen para extraer las características más importantes y entender el contexto.</li>
+                <li><strong>Decoder (Expansión):</strong> Recupera el tamaño original de la imagen para mapear con precisión quirúrgica dónde está cada objeto usando <em>Skip Connections</em>.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Aplicaciones Reales</h2>
+            <div class="grid">
+                <div>
+                    <strong>🚗 Vehículos Autónomos</strong>
+                    <p>Permite al auto mapear en tiempo real dónde termina la calle, dónde están las aceras y localizar obstáculos.</p>
+                </div>
+                <div>
+                    <strong>🏥 Medicina</strong>
+                    <p>Ayuda a los médicos a delimitar con precisión milimétrica tumores o anomalías en radiografías o resonancias.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="text-align: center;">
+            <h2>Código Fuente</h2>
+            <p>Explora la implementación en PyTorch de este proyecto directamente en el repositorio.</p>
+            <a href="#" class="btn">Ver Código en GitHub</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
