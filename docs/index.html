@@ -1,108 +1,364 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Segmentación Semántica | Mi Proyecto</title>
+    <title>Segmentación Semántica | Proyecto Deep Learning</title>
     <style>
         :root {
-            --primary: #2563eb;
-            --dark: #1e293b;
-            --light: #f8fafc;
+            --primary: #1e3a8a;
+            --accent: #2563eb;
+            --dark: #0f172a;
+            --bg-light: #f8fafc;
+            --geo-orange: #ea580c;
+            --geo-green: #16a34a;
+            --geo-blue: #2563eb;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
             color: var(--dark);
-            background-color: var(--light);
+            background-color: var(--bg-light);
         }
+
         header {
-            background: linear-gradient(135deg, #1e3a8a, var(--primary));
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
             color: white;
-            padding: 3rem 1rem;
+            padding: 4rem 1.5rem;
             text-align: center;
+            border-bottom: 4px solid var(--accent);
         }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: -0.05em;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        .author {
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
         .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
         }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
         .card {
             background: white;
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-top: 4px solid var(--accent);
         }
-        h1 { margin: 0; font-size: 2.5rem; }
-        h2 { color: var(--primary); border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
-        .grid {
+
+        /* Espectro de Visión Artificial */
+        .vision-spectrum {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
+            margin-bottom: 3rem;
         }
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
-        .btn {
-            display: inline-block;
+
+        .spectrum-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 5px solid #cbd5e1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .spectrum-card.active {
+            border-left-color: var(--accent);
+            background: #eff6ff;
+        }
+
+        .spectrum-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .badge {
+            background: #cbd5e1;
+            color: var(--dark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .spectrum-card.active .badge {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Fases de Procesamiento */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0 4rem;
+        }
+
+        .step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        .step-num {
             background: var(--primary);
             color: white;
-            padding: 0.75rem 1.5rem;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: bold;
+        }
+
+        /* Foco Geoespacial */
+        .geo-focus {
+            background: #0f172a;
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+        }
+
+        .geo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .geo-item {
+            padding: 1rem;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .geo-item.orange { border-left: 4px solid var(--geo-orange); }
+        .geo-item.green { border-left: 4px solid var(--geo-green); }
+        .geo-item.blue { border-left: 4px solid var(--geo-blue); }
+
+        .geo-item h4 {
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Mapa Conceptual */
+        .map-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+        }
+
+        .map-container {
+            margin-top: 1.5rem;
+            border: 2px dashed #cbd5e1;
+            padding: 1rem;
+            border-radius: 8px;
+            background: #f1f5f9;
+        }
+
+        .map-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Desafíos */
+        .challenges {
+            background: #fef2f2;
+            border: 1px solid #fee2e2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+
+        .challenges h3 { color: #991b1b; margin-top: 0; }
+
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.75rem 2rem;
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 1rem;
+            transition: background 0.2s;
         }
-        .btn:hover { background: #1d4ed8; }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Segmentación Semántica con Deep Learning</h1>
-        <p>Comprensión de imágenes a nivel de píxel</p>
+        <h1>Segmentación Semántica</h1>
+        <p>Coloreando la realidad píxel por píxel con Inteligencia Artificial</p>
+        <div class="author">Expositor: Maria Camila Uyabán</div>
     </header>
 
     <div class="container">
-        
-        <div class="card">
-            <h2>¿Qué es la Segmentación Semántica?</h2>
-            <p>A diferencia de la clasificación de imágenes tradicional (que te dice qué hay en una foto) o la detección de objetos (que encierra los objetos en cajas), la <strong>Segmentación Semántica</strong> consiste en asignar una etiqueta o clase a <strong>cada píxel individual</strong> de la imagen.</p>
-            <p>Es el equivalente a "colorear" la imagen por categorías: todo lo que sea carretera de un color, los peatones de otro y los autos de otro.</p>
+
+        <div class="card" style="margin-bottom: 3rem;">
+            <h2 style="margin-top:0; color: var(--primary);">El Concepto Alogorítmico</h2>
+            <p>Así como un niño colorea segmentando un dibujo por regiones delimitadas, una <strong>Red Neuronal Profunda</strong> analiza las imágenes analizando cada píxel de forma individual para clasificarlo en categorías específicas, generando un mapa de colores de alta precisión en lugar de una simple etiqueta global.</p>
         </div>
 
-        <div class="card">
-            <h2>La Arquitectura Empleada: U-Net</h2>
-            <p>Para este proyecto implementamos una red <strong>U-Net</strong>, una arquitectura convolucional diseñada originalmente para segmentación de imágenes biomédicas que consta de dos partes clave:</p>
-            <ul>
-                <li><strong>Encoder (Contracción):</strong> Reduce el tamaño de la imagen para extraer las características más importantes y entender el contexto.</li>
-                <li><strong>Decoder (Expansión):</strong> Recupera el tamaño original de la imagen para mapear con precisión quirúrgica dónde está cada objeto usando <em>Skip Connections</em>.</li>
-            </ul>
+        <h2 class="section-title">El Espectro de la Visión Artificial</h2>
+        <div class="vision-spectrum">
+            <div class="spectrum-card">
+                <h3>Clasificación <span class="badge">Global</span></h3>
+                <p><strong>¿Qué hace?:</strong> Identifica qué elementos contiene la imagen de forma global.</p>
+                <p><em>Ejemplo:</em> "Esta imagen contiene un perro".</p>
+            </div>
+            <div class="spectrum-card">
+                <h3>Detección de Objetos <span class="badge">Bounding Boxes</span></h3>
+                <p><strong>¿Qué hace?:</strong> Encuentra e identifica instancias específicas encerrándolas en cuadros delimitadores rectangulares.</p>
+                <p><em>Ejemplo:</em> Enmarca un carro con un rectángulo rígido.</p>
+            </div>
+            <div class="spectrum-card active">
+                <h3>Segmentación Semántica <span class="badge">Pixel-Level</span></h3>
+                <p><strong>¿Qué hace?:</strong> Clasifica de forma absoluta cada píxel individual de la imagen.</p>
+                <p><em>Ejemplo:</em> Genera una máscara de color de forma irregular que delimita la silueta exacta del objeto.</p>
+            </div>
         </div>
 
-        <div class="card">
-            <h2>Aplicaciones Reales</h2>
-            <div class="grid">
-                <div>
-                    <strong>🚗 Vehículos Autónomos</strong>
-                    <p>Permite al auto mapear en tiempo real dónde termina la calle, dónde están las aceras y localizar obstáculos.</p>
+        <h2 class="section-title">El Motor de Procesamiento en 4 Fases</h2>
+        <div class="timeline">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h4>Entrada</h4>
+                <p style="font-size: 0.9rem; color: #475569;">Recepción de la imagen cruda o fotograma de video.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h4>Extracción</h4>
+                <p style="font-size: 0.9rem; color: #475569;">La red identifica patrones geométricos, bordes y texturas.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h4>Comprensión</h4>
+                <p style="font-size: 0.9rem; color: #475569;">Fusión de características para interpretar el contexto espacial complejo.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <h4>Predicción</h4>
+                <p style="font-size: 0.9rem; color: #475569;">Generación del mapa final de segmentación a color píxel a píxel.</p>
+            </div>
+        </div>
+
+        <div class="map-section">
+            <h2 style="color: var(--primary); margin-top: 0;">Estructura de Aprendizaje</h2>
+            <p>A continuación se presenta la articulación conceptual de los fundamentos, arquitecturas y metodologías implementadas en el proyecto.</p>
+            <div class="map-container">
+                <img src="../MAPA CONEPTUAL SEMANTIC SEGMENTATION.jpg" alt="Mapa Conceptual de Segmentación Semántica">
+            </div>
+        </div>
+
+        <div class="geo-focus">
+            <h3 style="margin-top:0; color: #38bdf8; font-size: 1.5rem;">Foco de Aplicación: IA Geoespacial y Gestión del Riesgo</h3>
+            <p>La segmentación semántica es un pilar fundamental para la <strong>ingeniería catastral, la geodesia y los sistemas de información geográfica (SIG)</strong>, permitiendo aislar daños o clasificar coberturas terrestres en cuestión de segundos:</p>
+            
+            <div class="geo-grid">
+                <div class="geo-item orange">
+                    <h4 style="color: var(--geo-orange);">Naranja (Infraestructura)</h4>
+                    <p style="font-size: 0.9rem; margin-bottom:0;">Extracción automática de vías vehiculares, detección de techos y geolocalización de construcciones informales o ilegales.</p>
                 </div>
-                <div>
-                    <strong>🏥 Medicina</strong>
-                    <p>Ayuda a los médicos a delimitar con precisión milimétrica tumores o anomalías en radiografías o resonancias.</p>
+                <div class="geo-item green">
+                    <h4 style="color: var(--geo-green);">Verde (Vegetación)</h4>
+                    <p style="font-size: 0.9rem; margin-bottom:0;">Clasificación automatizada del uso del suelo, monitoreo de deforestación y análisis de evolución de entornos urbanos.</p>
+                </div>
+                <div class="geo-item blue">
+                    <h4 style="color: var(--geo-blue);">Azul (Cuerpos de Agua y Riesgo)</h4>
+                    <p style="font-size: 0.9rem; margin-bottom:0;">Delimitación precisa de cuerpos hídricos y mapeo inmediato de zonas afectadas por desastres naturales (inundaciones o deslizamientos).</p>
                 </div>
             </div>
         </div>
 
-        <div class="card" style="text-align: center;">
-            <h2>Código Fuente</h2>
-            <p>Explora la implementación en PyTorch de este proyecto directamente en el repositorio.</p>
-            <a href="#" class="btn">Ver Código en GitHub</a>
+        <div class="challenges">
+            <h3>⚠️ Desafíos Críticos de la Tecnología</h3>
+            <ul style="margin-bottom: 0; padding-left: 1.2rem;">
+                <li><strong>Anotación Masiva:</strong> Requiere conjuntos de datos extensos (como Cityscapes o MS COCO) anotados manualmente de forma quirúrgica por expertos.</li>
+                <li><strong>Carga Computacional:</strong> Exige un uso intensivo de hardware avanzado para el procesamiento de matrices (Entrenamiento optimizado en GPU).</li>
+                <li><strong>Confusión Semántica:</strong> Riesgo de errores de clasificación entre objetos que comparten texturas o morfologías idénticas.</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <h2 style="color: var(--primary);">Acceso al Entorno de Desarrollo</h2>
+            <p>Consulta el código fuente modular en PyTorch, el dataset y los scripts de entrenamiento del modelo.</p>
+            <a href="https://github.com/"" style="background-color: #0f172a;" class="btn">💻 Explorar Repositorio en GitHub</a>
         </div>
 
     </div>
+
+    <footer>
+        <p>© 2026 Proyecto de Segmentación Semántica - Desarrollado bajo estándares de Deep Learning</p>
+    </footer>
 
 </body>
 </html>
